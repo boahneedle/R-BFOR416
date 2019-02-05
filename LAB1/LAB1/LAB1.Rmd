@@ -1,0 +1,37 @@
+---
+title: "LAB1"
+author: "Anthony Capece III"
+date: "February 1, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a weird formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars, echo=FALSE}
+census <- read.table('census2000.txt', sep = '\t', header = TRUE)
+hist(census$Longitude)
+
+```
+
+##Question 2 - What are the pros and cons of deleting missing data?
+The pros of deleting missing data would be that you would be given a full summary of only full information. Another advantage would be that it would make your data look
+cleaner.
+The cons of deleting missing data is that you would be possibly skewing results. 
+
+Most literature, suggests that there are different types of missing data. Missing at Random(MAR), Missing at complete random(MCAR) and Missing at not random(MNAR). Out of these three missing data types the two randoms (MAR) and (MCAR) are safe to ignore. 
+
+SOURCES:
+https://www.theanalysisfactor.com/missing-data-mechanism/
+https://towardsdatascience.com/how-to-handle-missing-data-8646b18db0d4?gi=683f944ad5d9
+
+
+##Question 3 - What other types of plots and visualizations would be helpful to ids
+When looking for bad data, different plot types and visualizations may useful for identifing bad data. A scatter plot is commonly used to easily distinguish anomalies or outliers. 
