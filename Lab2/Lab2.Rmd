@@ -1,0 +1,56 @@
+---
+title: "Lab2"
+author: "Anthony Capece III"
+date: "February 5, 2019"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```
+```
+
+## HOMEWORK
+
+You can also embed plots, for example:
+
+```{r Homework1, echo=FALSE}
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv')
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv', na.strings = c('NULL','NA'))
+``` 
+#QUESTION 1
+```{r Homework2, echo=FALSE}
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv')
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv', na.strings = c('NULL','NA'))
+csData$INSTURL <- as.character(csData$INSTURL)
+str(csData$INSTURL)
+```
+##QUESTION 2
+```{r Homework3, echo=FALSE}
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv')
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv', na.strings = c('NULL','NA'))
+schools <- subset(csData, PBI == 1 | HBCU == 1)
+aggregate(SAT_AVG~PBI+HBCU,schools,mean)
+```
+
+###QUESTION 3
+```{r Homework4, echo=FALSE}
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv')
+csData <- read.csv('Most-Recent-Cohorts-Scorecard-Elements.csv', na.strings = c('NULL','NA'))
+csData$MD_EARN_WNE_P10 <- as.numeric(as.character(csData$MD_EARN_WNE_P10))
+csData$LOCALE <- as.numeric(as.character(csData$LOCALE))
+cor(csData$MD_EARN_WNE_P10, csData$LOCALE, use = "complete.obs" )
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
